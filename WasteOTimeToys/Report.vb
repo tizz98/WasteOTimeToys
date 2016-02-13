@@ -1,4 +1,16 @@
-﻿Public Class Report
+﻿'------------------------------------------------------------
+'-                   File Name: Report.vb                   -
+'-                 Part of Project: Assign5                 -
+'------------------------------------------------------------
+'-                Written By: Elijah Wilson                 -
+'-                  Written On: 02/13/2016                  -
+'------------------------------------------------------------
+'- File Purpose:                                            -
+'-                                                          -
+'- Contains the Report class which is used to generate      -
+'- reports based off of employee data.                      -
+'------------------------------------------------------------
+Public Class Report
     Private Const NO_DATA_STR As String = "Sorry, the input file is empty, so no data is available to report."
     Private Const FULL_LINE_LENGTH As Integer = 80
     Private Const CORP_NAME As String = "Waste O' Time Toys"
@@ -34,10 +46,48 @@
         OrderId
     End Enum
 
+    '------------------------------------------------------------
+    '-                   Subprogram Name: New                   -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Subprogram Purpose:                                      -
+    '-                                                          -
+    '- Creates a new Report object.                             -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- employees - An EmployeeContainer object to be set for    -
+    '-             this Report object                           -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
     Public Sub New(employees As EmployeeContainer)
         Me.employees = employees
     End Sub
 
+    '------------------------------------------------------------
+    '-              Function Name: generateReport               -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Generates a report based off of the employee data.       -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- retString - A String that is accumulated over time and   -
+    '-             eventually returned                          -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - The report as a string based off of the         -
+    '-          employee data                                   -
+    '------------------------------------------------------------
     Public Function generateReport() As String
         Dim retString As String = ""
 
@@ -59,6 +109,33 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-         Function Name: getAboveAverageEmployees          -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a string describing how many employees sold      -
+    '- above the average sales level as well as a list of the   -
+    '- employees first name and last name.                      -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- aboveAvgEmployees - The employees that had sales above   -
+    '-                     average                              -
+    '- empCount - The number of employees who sold above the    -
+    '-            average sales amount                          -
+    '- retString - A String that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - A string representation of which employees sold -
+    '-          above the average sales amount                  -
+    '------------------------------------------------------------
     Private Function getAboveAverageEmployees() As String
         Dim aboveAvgEmployees As List(Of Employee) = employees.getAboveAverageEmployees()
         Dim empCount As Integer = aboveAvgEmployees.Count
@@ -91,6 +168,27 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getSalesSummary              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- A summary about the sales and quantity of products sold. -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- retString - A string that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - A string representation of a summary of the     -
+    '-          sales and quantity of each product sold         -
+    '------------------------------------------------------------
     Private Function getSalesSummary() As String
         Dim retString As String = getDividerLine() & vbCrLf & centerString("Sales Statistics Summary")
         retString &= vbCrLf & getDividerLine() & vbCrLf & getQuantityStats() & vbCrLf
@@ -99,6 +197,28 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getQuantityStats              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Shows the Low, Average & High quantities sold for each   -
+    '- product.                                                 -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- retString - A string that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Statistics about the quanity of each product    -
+    '-          sold                                            -
+    '------------------------------------------------------------
     Private Function getQuantityStats() As String
         Dim retString As String = centerString("Quantity Statistics") & vbCrLf
         retString &= String.Format(STAT_NAMED_HEADERS_FMT_STR, "", "Games", "Dolls", "Building", "Model") & vbCrLf
@@ -113,6 +233,27 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-               Function Name: getSalesStats               -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Shows the Low, Average & High amount of sales for each   -
+    '- product.                                                 -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- retString - A string that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Statistics about the sales of each product sold -
+    '------------------------------------------------------------
     Private Function getSalesStats() As String
         Dim retString As String = centerString("Sales Statistics") & vbCrLf
         retString &= String.Format(STAT_NAMED_HEADERS_FMT_STR, "", "Games", "Dolls", "Building", "Model") & vbCrLf
@@ -131,6 +272,28 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getEmployeeLines              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Gets a string of all the employees' information, each on -
+    '- a separate line.                                         -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- sort - Which type of sort to use to sort the employees   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- retString - A string that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Information about each employee displayed on a  -
+    '-          separate line                                   -
+    '------------------------------------------------------------
     Private Function getEmployeeLines(Optional sort As SortType = SortType.LastNameFirstName) As String
         Dim retString As String = ""
 
@@ -149,12 +312,57 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getEmployeeLine              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Information about an Employee object as it will be       -
+    '- displayed as a line item.                                -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- employee - The Employee object to use for information    -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Information about an employee to be displayed   -
+    '-          as a line item                                  -
+    '------------------------------------------------------------
     Private Function getEmployeeLine(employee As Employee) As String
         Return String.Format(EMP_LINE_FMT_STR, employee.fullName(), employee.orderId.ToString().PadLeft(3, "0"),
                              employee.gameSales, employee.dollSales, employee.buildingSales, employee.modelSales,
                              employee.totalSales)
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getReportHeader              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a header for a report, that is customized by the -
+    '- input reportName                                         -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- reportName - The name of the report that should be used  -
+    '-              in the header                               -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- reportTitle - The title of the report as determined by a -
+    '-               format string and the input reportName     -
+    '- retString - A string that is accumulated and eventually  -
+    '-             returned                                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - The report header                               -
+    '------------------------------------------------------------
     Private Function getReportHeader(reportName As String) As String
         Dim reportTitle As String = String.Format(REPORT_TITLE_FMT_STR, String.Format(REPORT_NAME, reportName))
         Dim retString As String = centerString(CORP_NAME) & vbCrLf
@@ -164,14 +372,74 @@
         Return retString
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getNamedHeaders              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a string with the names of the headers formatted -
+    '- properly                                                 -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - The headers formatted correctly                 -
+    '------------------------------------------------------------
     Private Function getNamedHeaders() As String
         Return String.Format(NAMED_HEADERS_FMT_STR, "Name", "Id", "Games", "Dolls", "Building", "Models", "Total")
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getDividerLine               -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a dashed divider line of a certain number of     -
+    '- characters, defaults to FULL_LINE_LENGTH                 -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- length - The number of characters for the divider        -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - The divider line                                -
+    '------------------------------------------------------------
     Private Function getDividerLine(Optional length As Integer = FULL_LINE_LENGTH) As String
         Return StrDup(length, "-")
     End Function
 
+    '------------------------------------------------------------
+    '-               Function Name: centerString                -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Centers a string within a certain line length.           -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- stringToCenter - The string to be centered               -
+    '- lineLength - How long the line is                        -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - A String centered with a certain line length    -
+    '------------------------------------------------------------
     Private Function centerString(stringToCenter As String, Optional lineLength As Integer = FULL_LINE_LENGTH) As String
         Return String.Format("{0,-" & CStr(lineLength) & "}",
                              String.Format("{0," & (Math.Ceiling((lineLength + stringToCenter.Length) / 2)).ToString() & "}", stringToCenter))
