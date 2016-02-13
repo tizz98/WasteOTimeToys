@@ -46,6 +46,7 @@ Public Class Parser
             .buildingQuanity = fields(BLDG_QTY_IDX)
             .modelSales = fields(MDL_AMT_IDX)
             .modelQuantity = fields(MDL_QTY_IDX)
+            .totalSales = .gameSales + .dollSales + .buildingSales + .modelSales
         End With
 
         Return employee

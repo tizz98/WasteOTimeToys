@@ -18,7 +18,7 @@ Public Class Employee
     Public modelSales As Single
     Public modelQuantity As Integer
 
-    Public totalSales As Integer
+    Public totalSales As Single
 
     Public Overrides Function toString() As String
         Dim fields As FieldInfo() = Me.GetType().GetFields()
@@ -34,5 +34,9 @@ Public Class Employee
         accStr = accStr.TrimEnd(" ").TrimEnd(",")
 
         Return String.Format(fmtStr, accStr)
+    End Function
+
+    Public Function fullName() As String
+        Return String.Format("{0}, {1}", Me.lastName, Me.firstName)
     End Function
 End Class

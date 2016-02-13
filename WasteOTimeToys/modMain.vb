@@ -4,6 +4,7 @@ Module modMain
     Sub Main()
         Dim employeeContainer As New EmployeeContainer()
         Dim parser As Parser
+        Dim report As Report
         Dim dataFilePath As String = promptUser("Please enter the data file path: ")
 
         If Not isFileValid(dataFilePath) Then
@@ -14,8 +15,11 @@ Module modMain
 
         parser = New Parser(dataFilePath)
         employeeContainer.setEmployees(parser.parseFile())
+        report = New Report(employeeContainer)
 
-        employeeContainer.quickPrint()
+        ' Show Report
+        Console.Clear()
+        Console.WriteLine(report.generateReport())
 
         Console.ReadLine()
     End Sub
