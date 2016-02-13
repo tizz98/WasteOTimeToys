@@ -545,74 +545,389 @@ Public Class EmployeeContainer
         Return (From emp In employees Select emp.dollSales).Average()
     End Function
 
+    '------------------------------------------------------------
+    '-           Function Name: getBuildingSalesHigh            -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the highest building sales amount                -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Highest building sales amount                   -
+    '------------------------------------------------------------
     Public Function getBuildingSalesHigh() As Single
         Return (From emp In employees Select emp.buildingSales).Max()
     End Function
 
+    '------------------------------------------------------------
+    '-            Function Name: getBuildingSalesAvg            -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the average building sales amount                -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Average building sales amount                   -
+    '------------------------------------------------------------
     Public Function getBuildingSalesAvg() As Single
         Return (From emp In employees Select emp.buildingSales).Average()
     End Function
 
+    '------------------------------------------------------------
+    '-            Function Name: getBuildingSalesLow            -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the lowest building sales amount                 -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Lowest building sales amount                    -
+    '------------------------------------------------------------
     Public Function getBuildingSalesLow() As Single
         Return (From emp In employees Select emp.buildingSales).Min()
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getModelSalesHigh             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the highest model sales amount                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Highest model sales amount                      -
+    '------------------------------------------------------------
     Public Function getModelSalesHigh() As Single
         Return (From emp In employees Select emp.modelSales).Max()
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getModelSalesAvg              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the average model sales amount                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Average model sales amount                      -
+    '------------------------------------------------------------
     Public Function getModelSalesAvg() As Single
         Return (From emp In employees Select emp.modelSales).Average()
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getModelSalesLow              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the lowest model sales amount                    -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Lowest model sales amount                       -
+    '------------------------------------------------------------
     Public Function getModelSalesLow() As Single
         Return (From emp In employees Select emp.modelSales).Min()
     End Function
 
+    '------------------------------------------------------------
+    '-           Function Name: getBuildingSalesTotal           -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the total amount of building sales               -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Total amount of building sales                  -
+    '------------------------------------------------------------
     Public Function getBuildingSalesTotal() As Single
         Return (From emp In employees Select emp.buildingSales).Sum()
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getGameSalesTotal             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the total amount of game sales                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Total amount of game sales                      -
+    '------------------------------------------------------------
     Public Function getGameSalesTotal() As Single
         Return (From emp In employees Select emp.gameSales).Sum()
     End Function
 
+    '------------------------------------------------------------
+    '-            Function Name: getModelSalesTotal             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the total amount of model sales                  -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Total amount of model sales                     -
+    '------------------------------------------------------------
     Public Function getModelSalesTotal() As Single
         Return (From emp In employees Select emp.modelSales).Sum()
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getDollSalesTotal             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the total amount of doll sales                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Total amount of doll sales                      -
+    '------------------------------------------------------------
     Public Function getDollSalesTotal() As Single
         Return (From emp In employees Select emp.dollSales).Sum()
     End Function
 
+    '------------------------------------------------------------
+    '-               Function Name: getTotalSales               -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns the total amount of all sales                    -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Single - Total amount of all sales                       -
+    '------------------------------------------------------------
     Public Function getTotalSales() As Single
         Return getBuildingSalesTotal() + getGameSalesTotal() + getModelSalesTotal() + getDollSalesTotal()
     End Function
 
+    '------------------------------------------------------------
+    '-       Function Name: getAboveAvgGameSalesEmployees       -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a list of employees that had game sales above    -
+    '- the average                                              -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- List(Of Employee) - List of employees that had game      -
+    '-                     sales above the average              -
+    '------------------------------------------------------------
     Public Function getAboveAvgGameSalesEmployees() As List(Of Employee)
         Return (From emp In employees
                 Where emp.gameSales > getGameSalesAvg()
                 Select emp).ToList()
     End Function
 
+    '------------------------------------------------------------
+    '-       Function Name: getAboveAvgDollSalesEmployees       -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a list of employees that had doll sales above    -
+    '- the average                                              -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- List(Of Employee) - List of employees that had doll      -
+    '-                     sales above the average              -
+    '------------------------------------------------------------
     Public Function getAboveAvgDollSalesEmployees() As List(Of Employee)
         Return (From emp In employees
                 Where emp.dollSales > getDollSalesAvg()
                 Select emp).ToList()
     End Function
 
+    '------------------------------------------------------------
+    '-       Function Name: getAboveAvgBldgSalesEmployees       -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a list of employees that had building sales      -
+    '- above the average                                        -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- List(Of Employee) - List of employees that had building  -
+    '-                     sales above the average              -
+    '------------------------------------------------------------
     Public Function getAboveAvgBldgSalesEmployees() As List(Of Employee)
         Return (From emp In employees
                 Where emp.buildingSales > getBuildingSalesAvg()
                 Select emp).ToList()
     End Function
 
+    '------------------------------------------------------------
+    '-      Function Name: getAboveAvgModelSalesEmployees       -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a list of employees that had model sales above   -
+    '- the average                                              -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- List(Of Employee) - List of employees that had model     -
+    '-                     sales above the average              -
+    '------------------------------------------------------------
     Public Function getAboveAvgModelSalesEmployees() As List(Of Employee)
         Return (From emp In employees
                 Where emp.modelSales > getModelSalesAvg()
                 Select emp).ToList()
     End Function
 
+    '------------------------------------------------------------
+    '-         Function Name: getAboveAverageEmployees          -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 02/13/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- Returns a list of employees that had sales above the     -
+    '- average in any product                                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- tempEmployees - A list of employees that is accumulated  -
+    '-                 and used to get data from                -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- List(Of Employee) - List of employees that had sales     -
+    '-                     above the average in any product     -
+    '------------------------------------------------------------
     Public Function getAboveAverageEmployees() As List(Of Employee)
         Dim tempEmployees As New List(Of Employee)
 
