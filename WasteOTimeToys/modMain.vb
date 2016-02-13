@@ -2,6 +2,7 @@
 
 Module modMain
     Sub Main()
+        Console.Title = "Waste O' Time Toys"
         Dim employeeContainer As New EmployeeContainer()
         Dim parser As Parser
         Dim report As Report
